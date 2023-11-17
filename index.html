@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 30px;
+            font-family: Arial, sans-serif;
+
+        }
+
+.navbar{
+     position:fixed;
+     width:100%;
+     display:flex;
+     flex-direction:column;
+     justify-content:flex-end;
+     align-items:center;
+     background-color:#333;
+     color:#fff;
+     padding:20px;
+     box-shadow: 0px 0px 10px #cfd8dc
+}
+.navbar li{
+     list-style:none;
+
+}
+.navbar a {
+     font-size:2rem;
+     color: #fff;
+     text-decoration: none;
+     margin-right: 6rem;
+  }
+  @media screen and (min-width:100px){
+  .navbar{
+   flex-direction:row;
+  }}
+
+
+        .calculator {
+            width: 300px;
+            background-color: #807272;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 83%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            box-sizing: border-box;
+            border: 1px solid #d1bebe;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            border: 1px solid #b1b1b1;
+            border-radius: 10px;
+            background-color: #b9aaaa;
+            padding: 10px;
+            box-shadow:  4px 4px rgba(94, 65, 104, 0.957);
+            text-align:center;
+        
+        }
+        h2{
+            line-height: 1px;
+            font-weight:600;
+            text-shadow: #1e608d;
+        }
+
+        /* Larger buttons */
+        button.large {
+            width: 111px;
+        }
+       
+
+      .DEL{
+        background-color: #1e608d;
+            color: #fbfafa;
+         justify-content:center;
+
+      }
+
+        /* Color customization */
+        button.blue {
+            background-color: #1e608d;
+            color: #fbfafa;
+           text-align:center;
+           
+        }
+        
+
+        button.red {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+    </style>
+    <title>Beautiful Calculator</title>
+</head>
+<body>
+    <header>
+    <nav> 
+         <ul class="navbar">
+           <li><a href="#home">Home</a> </li>  
+           <li><a href="#About">About us</a>  </li>  
+           <li><a href="https://github.com/Asmabz/Type-of-cats/blob/main/index.html">Contact us</a></li>  
+         </ul> 
+    </nav>
+</header>
+    <div class="calculator">
+        <h2>Calc</h2>
+        <input type="text" id="display" readonly>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="DEL" onclick="deleteLast()">DEL</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>-</button>
+        <button>.</button>
+        <button>0</button>
+        <button>/</button>
+        <button>x</button>
+        <button class="blue large" onclick="clearInput()">RESET</button>
+        <button class="red large" onclick="calculate()">=</button>
+        
+        
+    </div>
+
+    <script>
+        function addToInput(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearInput() {
+            document.getElementById('display').value = '';
+        }
+
+        function deleteLast() {
+            let currentValue = document.getElementById('display').value;
+            document.getElementById('display').value = currentValue.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
