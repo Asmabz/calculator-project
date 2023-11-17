@@ -126,7 +126,7 @@
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button class="DEL" onclick="deleteLast()">DEL</button>
+        <button class="DEL">DEL</button>
         <button>4</button>
         <button>5</button>
         <button>6</button>
@@ -139,33 +139,11 @@
         <button>0</button>
         <button>/</button>
         <button>x</button>
-        <button class="blue large" onclick="clearInput()">RESET</button>
-        <button class="red large" onclick="calculate()">=</button>
+        <button class="blue large">RESET</button>
+        <button class="red large">=</button>
         
         
     </div>
 
-    <script>
-        function addToInput(value) {
-            document.getElementById('display').value += value;
-        }
-
-        function clearInput() {
-            document.getElementById('display').value = '';
-        }
-
-        function deleteLast() {
-            let currentValue = document.getElementById('display').value;
-            document.getElementById('display').value = currentValue.slice(0, -1);
-        }
-
-        function calculate() {
-            try {
-                document.getElementById('display').value = eval(document.getElementById('display').value);
-            } catch (error) {
-                document.getElementById('display').value = 'Error';
-            }
-        }
-    </script>
 </body>
 </html>
